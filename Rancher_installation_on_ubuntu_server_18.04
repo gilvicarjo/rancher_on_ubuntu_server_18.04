@@ -1,0 +1,37 @@
+1- Install Docker on Ubuntu Using Default Repositories
+    - Open a terminal window and type: sudo apt-get update
+    - Uninstall Old Versions of Docker : sudo apt install docker.io
+    - Start and Automate Docker :  sudo systemctl start docker 
+     - Set it to run at startup: sudo systemctl enable docker
+     -    Finally, check the status of Docker:  sudo systemctl status docker                                              
+    - (Optional): Check Docker Version :docker --version
+    
+    
+   
+  2- Install Rancher 
+  
+    - Create a new Rancher server container using the following command: 
+    * if you want to install rancher server :sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server:stable
+    * if you want to install rancher/rancher : sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher 
+    
+     The command above instructs Docker to run the container in detached mode and to keep it running (unless it is manually stopped). The server container is configured to listen to port 8080, but you can modify the port number according to your needs.
+      
+      I want to change port to : udo docker run --privileged -d --restart=unless-stopped -p 8445:443 rancher/rancher 
+      
+      
+      
+    3-Lunch Rancher on web browser 
+    
+      To access the Rancher user interface, open a web browser and type the server IP number and port in the URL bar following the syntax: https://[server_ip]:[port]
+      exemple :127.0.0.1:8445
+      
+      4- Configure Rancher
+      
+      Open the ADMIN drop-down menu and click Access Control.
+      
+      5-Create a Custom Kubernetes Cluster
+      - Navigate to the Clusters page and click Add Cluster.
+      -Select Custom, type a Cluster Name, and click Next.
+      - Under Node Options, choose what roles you want the nodes to have (etcd, Control PlCopy and paste the generated command on each worker node machine and wait for the cluster to start up.ane, and/or Worker).
+      - 
+      
